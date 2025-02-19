@@ -5,7 +5,7 @@ class BottomNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(//bottomnav bar
       bottomNavigationBar: BottomNavigationBar(items:[
         BottomNavigationBarItem(icon:Icon(Icons.home_outlined),label: 'Home'),
         BottomNavigationBarItem(icon:Icon(Icons.list),label: 'Categories'),
