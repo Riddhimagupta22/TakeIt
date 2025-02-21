@@ -1,21 +1,43 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:take_it/Frontend/Screens/Home%20Page/drawer.dart';
 import 'category_item.dart';
 import 'product_item.dart';
+
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final scaffoldKey = GlobalKey<ScaffoldState>();
+    var size = MediaQuery.of(context).size;
+
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Text('TakeIt', style: TextStyle(color: Colors.white)),
+        leading: SizedBox(
+          height: size.width*.03,
+          width: size.width*.03,
+          child: IconButton(
+              onPressed: () {
+                if(scaffoldKey.currentState!.isDrawerOpen){
+                scaffoldKey.currentState!.closeDrawer();
+                }else{scaffoldKey.currentState!.openDrawer();}
+              }, icon: Icon(Icons.menu, color: Colors.white,
+          size:30)),
+        ),
+         title: Text('TakeIt', style: TextStyle(color: Colors.white)),
         actions: [
-          IconButton(
-            icon: Icon(Icons.account_balance_wallet, color: Colors.yellow),
-            onPressed: () {},
-          ),
+          Padding(
+            padding: const EdgeInsets.only(left:150),
+            child: SvgPicture.asset(
+              "images/Rectangle 17.svg",
+              width: 224,
+              height: 138,
+            ),
+          )
         ],
       ),
+      drawer: drawer(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,16 +48,19 @@ class HomeScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'Search...',
                   prefixIcon: Icon(Icons.search),
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8)),
                 ),
               ),
             ),
             SizedBox(height: 10),
-            Image.asset('assets/banner.jpg', fit: BoxFit.cover), // Placeholder for banner
+            Image.asset('images/Group 4.png',
+                fit: BoxFit.cover), // Placeholder for banner
             SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text('Categories', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              child: Text('Categories',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ),
             GridView.count(
               shrinkWrap: true,
@@ -45,13 +70,15 @@ class HomeScreen extends StatelessWidget {
                 CategoryItem(icon: Icons.man, label: 'Men'),
                 CategoryItem(icon: Icons.woman, label: 'Female'),
                 CategoryItem(icon: Icons.child_care, label: 'Kids'),
-                CategoryItem(icon: Icons.electrical_services, label: 'Electronics'),
+                CategoryItem(
+                    icon: Icons.electrical_services, label: 'Electronics'),
               ],
             ),
             SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text('Recently Viewed Items', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              child: Text('Recently Viewed Items',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ),
             SizedBox(
               height: 120,
@@ -65,15 +92,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Categories'),
-          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: 'Gifts'),
-          BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'Account'),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: 'Cart'),
-        ],
       ),
     );
   }
