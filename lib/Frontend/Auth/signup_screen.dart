@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../Features/bottom_navbar.dart';
 import '../Screens/Home Page/home_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -66,7 +67,7 @@ class SignUpScreen extends StatelessWidget {
               const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
-                  Get.to(HomeScreen());
+                  Get.to(BottomNavbar());
                 },
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(double.infinity, 50),
