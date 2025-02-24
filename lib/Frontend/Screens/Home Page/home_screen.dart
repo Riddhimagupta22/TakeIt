@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:take_it/Frontend/Features/Widgets/custom%20image.dart';
 import 'package:take_it/Frontend/Screens/Home%20Page/drawer.dart';
 import 'category_item.dart';
 import 'product_item.dart';
@@ -25,17 +26,7 @@ class HomeScreen extends StatelessWidget {
               }, icon: Icon(Icons.menu, color: Colors.white,
           size:30)),
         ),
-         title: Text('TakeIt', style: TextStyle(color: Colors.white)),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(left:150),
-            child: SvgPicture.asset(
-              "images/Rectangle 17.svg",
-              width: 224,
-              height: 138,
-            ),
-          )
-        ],
+         title: Text('TakeIt', style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800)),
       ),
       drawer: drawer(),
       body: SingleChildScrollView(
@@ -54,8 +45,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            Image.asset('images/Group 4.png',
-                fit: BoxFit.cover), // Placeholder for banner
+            CustomWidgets.CustomImage(img: 'Group 4.png'),
             SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(8.0),

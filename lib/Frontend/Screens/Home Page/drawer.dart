@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:take_it/Frontend/Auth/signup_screen.dart';
 
 class drawer extends StatelessWidget {
   @override
@@ -86,14 +88,16 @@ class drawer extends StatelessWidget {
                     fontSize: 18, fontWeight: FontWeight.w400),
               ),
               onTap: () {}),
-          Spacer(),
+
           Padding(
-            padding: const EdgeInsets.only(top: 250, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 200, left: 20, right: 20),
             child: SizedBox(
               height: 30,
               width: 278,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(SignUpScreen());
+                },
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(4))),
