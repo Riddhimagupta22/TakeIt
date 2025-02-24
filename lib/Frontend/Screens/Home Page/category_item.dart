@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 class CategoryItem extends StatelessWidget {
-  final IconData icon;
+  final String img;
   final String label;
 
-  CategoryItem({required this.icon, required this.label});
+  CategoryItem({required this.img, required this.label});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, size: 40, color: Colors.blue),
-        Text(label, style: TextStyle(fontSize: 12)),
+        Image.asset(img, height: 40,width: 50,),
+        Text(label,  style: GoogleFonts.poppins(
+          fontSize: 13,
+          fontWeight: FontWeight.w500,
+        ),),
       ],
     );
   }

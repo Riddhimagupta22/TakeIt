@@ -115,7 +115,16 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   child: const Text("Sign Up", style: TextStyle(color: Colors.white)),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 4),
+                Text('or',textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: Color(0xFF666666),
+                    letterSpacing: 1,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 4),
                 OutlinedButton(
                   onPressed: () {},
                   style: OutlinedButton.styleFrom(
@@ -123,7 +132,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   child: const Text("Continue with Google"),
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height:  30),
                 GestureDetector(
                   onTap: () {
                    Get.to(LoginScreen());
