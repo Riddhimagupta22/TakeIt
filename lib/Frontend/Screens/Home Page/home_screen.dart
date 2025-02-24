@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:take_it/Frontend/Features/Widgets/custom%20image.dart';
-import 'package:take_it/Frontend/Screens/Home%20Page/drawer.dart';
-import 'category_item.dart';
-import 'items.dart';
-import 'product_item.dart';
+import 'package:take_it/Frontend/Screens/Home%20Page/Homepage%20Widgets/drawer.dart';
+import 'Homepage Widgets/category_item.dart';
+import 'Homepage Widgets/items.dart';
+import 'Homepage Widgets/product_item.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
