@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:take_it/Backend/Service/Auth%20Service/auth_service.dart';
 import 'package:take_it/Frontend/Auth/signup_screen.dart';
 
 class drawer extends StatelessWidget {
@@ -96,7 +97,8 @@ class drawer extends StatelessWidget {
               width: 278,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.to(SignUpScreen());
+                  AuthService().signout();
+                  // Get.to(SignUpScreen());
                 },
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(

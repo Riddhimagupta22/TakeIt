@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../Features/Widgets/AppBar Widgets/appbar_widgets.dart';
-import 'Account Page/account_widgets.dart';
+import '../../Features/Widgets/AppBar Widgets/appbar_widgets.dart';
+import '../../Features/Widgets/drawer.dart';
+import 'account_widgets.dart';
 
 class Account extends StatelessWidget {
   const Account({super.key});
@@ -28,6 +29,7 @@ class Account extends StatelessWidget {
           title: CustomAppBar.CustomText(text: 'Profile'),
         actions: [CustomAppBar.CustomIcon()],
       ),
+      drawer: drawer(),
        body: Container(
       height: double.infinity,
       width: double.infinity,

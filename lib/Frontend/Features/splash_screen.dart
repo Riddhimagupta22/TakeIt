@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:take_it/Frontend/Features/Widgets/custom%20image.dart';
-import 'Auth/signup_screen.dart';
+import '../Auth/signup_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -124,7 +124,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 width: scrWidth*.775,
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.to(() => const SignUpScreen());
+                    Get.to(() => SignUpScreen());
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
