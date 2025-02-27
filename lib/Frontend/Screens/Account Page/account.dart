@@ -1,116 +1,124 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:take_it/Backend/Service/Auth%20Service/auth_service.dart';
 import '../../Features/Widgets/AppBar Widgets/appbar_widgets.dart';
 import '../../Features/Widgets/drawer.dart';
 import 'account_widgets.dart';
 
 class Account extends StatelessWidget {
-  const Account({super.key});
 
   @override
   Widget build(BuildContext context) {
-      final scaffoldKey = GlobalKey<ScaffoldState>();
-        var size = MediaQuery.of(context).size;
-
+    final scaffoldKey = GlobalKey<ScaffoldState>();
+    var size = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-          backgroundColor: Colors.blue,
-          leading: IconButton(
-              onPressed: () {
-                if (scaffoldKey.currentState!.isDrawerOpen) {
-                  scaffoldKey.currentState!.closeDrawer();
-                } else {
-                  scaffoldKey.currentState!.openDrawer();
-                }
-              },
-              icon: Icon(Icons.menu, color: Colors.white, size: 30)),
-          title: CustomAppBar.CustomText(text: 'Profile'),
+        leading: IconButton(
+            onPressed: () {
+              if (scaffoldKey.currentState!.isDrawerOpen) {
+                scaffoldKey.currentState!.closeDrawer();
+              } else {
+                scaffoldKey.currentState!.openDrawer();
+              }
+            },
+            icon: Icon(Icons.menu, color: Colors.white, size: 30)),
+        title: CustomAppBar.CustomText(text: 'Profile'),
         actions: [CustomAppBar.CustomIcon()],
       ),
       drawer: drawer(),
-       body: Container(
-      height: double.infinity,
-      width: double.infinity,
-      child: ListView(
-        // physics: const BouncingScrollPhysics(),
-        children: [
+      body: SingleChildScrollView(
+        child: Column(children: [
           Padding(
-            padding:
-            const EdgeInsets.symmetric(horizontal: 60.0, vertical: 20),
-            child: Image.asset(
-              "images/efd.png",
+            padding:  EdgeInsets.only(top: size.height*.03),
+            child: CircleAvatar(
+              radius: 35,
+              backgroundImage: AssetImage(
+                  'Assets/images/strong-black-man-wearing-black-leather-jacket-posing-in-studio-shot-against-yellow-background-2FMNMER 1.png'), // Replace with network image if needed
             ),
           ),
-          Center(
-            child: Text(
-              'Any list you create become a filter at the',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: size.width * 0.034,
+          SizedBox(height: size.height*.01),
+          Text(
+            'Carter Sam',
+            style: GoogleFonts.poppins(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color: Colors.black
+            ),
+          ),
+          Text('+001 89732***', style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF999999)
+          ),),
+          Text('carter88***@gmail.com', style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF999999)
+          ),),
+          Padding(
+            padding:  EdgeInsets.only(left: size.width*.05,right: size.width*.05,),
+            child: Divider(
+              thickness: size.width * 0.0025,
+              color: Color(0xFF999999),
+            ),
+          ),
+          AccountWidgets.ListWidget(),
+          Padding(
+            padding: EdgeInsets.only(bottom:  size.height*.001),
+            child: Divider(
+              thickness: size.width * 0.015,
+              color: Color.fromARGB(
+                255,
+                233,
+                232,
+                232,
               ),
             ),
-          ),
-          Center(
-            child: Text(
-              'top of yoour Chats tab.',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: size.width * 0.034,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 45),
-            child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 16, 54, 41),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(Icons.add,
-                        color: Color.fromARGB(255, 214, 252, 205)),
-                    Text(
-                      'Create a custom list',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 214, 252, 205)),
-                    )
-                  ],
-                )),
-          ),
-          const Divider(
-            thickness: 7,
-            color: Color.fromARGB(255, 233, 232, 232, ),
           ),
           AccountWidgets.ListWidgets(text: 'Refer And Earn', icon: Icons.send),
           AccountWidgets.ListWidgets(text: 'Coupons', icon: Icons.discount),
-          AccountWidgets.ListWidgets(text: 'My Orders', icon: Icons.shopping_cart),
+          AccountWidgets.ListWidgets(
+              text: 'My Orders', icon: Icons.shopping_cart),
           AccountWidgets.ListWidgets(text: 'Wishlist', icon: Icons.favorite),
-          AccountWidgets.ListWidgets(text: 'Wallet', icon: Icons.account_balance_wallet),
-          const Divider(
-            thickness: 3,
-            color: Color.fromARGB(255, 233, 232, 232, ),
+          AccountWidgets.ListWidgets(
+              text: 'Wallet', icon: Icons.account_balance_wallet),
+          Divider(
+            thickness: size.width * 0.007,
+            color: Color.fromARGB(
+              255,
+              233,
+              232,
+              232,
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(
-                left: size.width * 0.05, top: size.height * 0.01,bottom: size.height * 0.01),
+                right: size.width * 0.6,
+                top: size.height * 0.01,
+                ),
             child: Text(
               'My Activity',
               style: GoogleFonts.poppins(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black
-              ),
+                shadows:[Shadow(
+                  offset:  Offset(2, 2),
+                  blurRadius: 10,
+                  color: Colors.black38
+
+
+                ),],
+                  fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
             ),
           ),
           AccountWidgets.ListWidgets(text: 'Reviews', icon: Icons.rate_review),
-          AccountWidgets.ListWidgets(text: 'Question & Answers', icon: Icons.question_answer_outlined),
-]
-    )
-    ),
+          AccountWidgets.ListWidgets(
+              text: 'Question & Answers', icon: Icons.question_answer_outlined)
+        ]),
+      ),
     );
   }
 }

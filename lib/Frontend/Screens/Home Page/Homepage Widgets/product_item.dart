@@ -12,24 +12,26 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return ListView.builder(
       scrollDirection: Axis.horizontal,
-      padding: EdgeInsets.only(left: 8.0,right: 8,top: 2,bottom: 8),
+      padding: EdgeInsets.only(left:size.width*.007,right: size.width*.007,top: size.height*.007,bottom: size.height*.0001),
       itemCount: products.length,
       itemBuilder: (context, index) {
         return Container(
-          margin: EdgeInsets.only(left: 10,top: 1,),
-          width: 100,
+          margin: EdgeInsets.only(left: size.width*.04,top: size.height*.001,),
+          width: size.width*.3,
           decoration: BoxDecoration(
+            // color: Colors.black38,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(color: Colors.grey.shade300),
           ),
           child: Column(
             children: [
-              Image.asset( products[index]['image']!,height: 90,width: 90,
+              Image.asset( products[index]['image']!,height:  size.height*.1,width: size.width*.9,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 4.0,right: 4,top:18),
+                padding:  EdgeInsets.only(left: size.width*.01,right: size.width*.01,top: size.height*.03),
                 child: Text(
                   products[index]['name']!,
                   style: GoogleFonts.inter(

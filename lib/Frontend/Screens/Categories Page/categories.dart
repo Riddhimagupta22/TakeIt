@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:take_it/Frontend/Screens/Categories%20Page/Categories%20%20Widgets/mens_item.dart';
 import 'package:take_it/Frontend/Screens/Categories%20Page/Categories%20%20Widgets/side_categories.dart';
 
@@ -16,7 +17,6 @@ class Categories extends StatelessWidget {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
         leading: IconButton(
             onPressed: () {
               if (scaffoldKey.currentState!.isDrawerOpen) {
@@ -33,9 +33,28 @@ class Categories extends StatelessWidget {
     body: Row(
       children: [
         SideCategories(),
-
-        Expanded(child: MensItem()),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start, // Align text to left
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top:20,left: 10),
+                child: Text(
+                  'Men',
+                  style: GoogleFonts.inter(
+                    color: Color(0xFF333333),
+                    fontSize: 18, // Added font size
+                    fontWeight: FontWeight.w500, // Added weight
+                  ),
+                  // overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              Expanded(child: MensItem()),
+            ],
+          ),
+        ),
       ],
-    ),);
+    ),
+    );
   }
 }

@@ -16,7 +16,6 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
         leading: IconButton(
             onPressed: () {
               if (scaffoldKey.currentState!.isDrawerOpen) {
@@ -42,41 +41,69 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
+        Container(
+          height: size.width*0.18,
+          color: Color(0xFF0071DC),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+          Container(
+          height: size.width*0.12,
+            width: size.width*0.75,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8),
+              boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)],
+            ),
+            child: Row(
               children: [
-                Container(
-                  color: Colors.blue,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      height: 40,
-                      width: 347,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          hintText: 'Search...',
-                          prefixIcon: Icon(Icons.search),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8)),
-                        ),
-                      ),
+                IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+                Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+
+                      hintText: "Search",
+                      border: InputBorder.none,
+                    ),
+                    textAlignVertical: TextAlignVertical(y: -1),
+                  ),
+                ),
+                Container(height: size.width*0.12,
+                  width: size.width*0.11,
+                  decoration: BoxDecoration(
+                      color: Color(0xFF93CBFF),
+                      borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Center(
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.mic),
+                      color: Colors.blue,
+
                     ),
                   ),
                 ),
               ],
             ),
-            SizedBox(
-              height: 20,
-              child: Center(
-                child: Text(
-                  "12 Ram Bhavan,36 Street road ,Mullana, ...",
-                  style: GoogleFonts.inter(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                  ),
+          ),
+          IconButton(
+              onPressed: (){},
+              icon:Icon(Icons.favorite_border,color: Colors.white,size: size.width*0.08,
+              )
+          )
+          ],
                 ),
-              ),
-            ),
+        ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                    child: Icon(Icons.location_on)),
+                Text('12 Ram Bhavan,36 Street road ,Mullana,',style: GoogleFonts.inter(color: Color(0xFF666666)),overflow: TextOverflow.ellipsis,),
+                IconButton(onPressed: (){
+                  // Get.to(HomeScreen());
+                }, icon: Icon (Icons.arrow_drop_down,color: Colors.grey,))
+              ],),
             CustomWidgets.CustomImage(img: 'Group 4.png'),
             GridView.count(
               shrinkWrap: true,
@@ -102,11 +129,20 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             SizedBox(
-                height: 135,
+                height: size.height*.18,
                 child: Item()
             ),
+             Divider(
+              thickness: size.width * 0.0025,
+              color: Color.fromARGB(
+                255,
+                233,
+                232,
+                232,
+              ),
+            ),
             Padding(
-              padding: const EdgeInsets.only(left: 8.0,top: 8),
+              padding:  EdgeInsets.only(left: size.width*.04,top: size.height*.009),
               child: Text('Recently Viewed Items',
                 style: GoogleFonts.inter(
                   fontSize: 17,
@@ -114,7 +150,7 @@ class HomeScreen extends StatelessWidget {
                 ),),
             ),
             SizedBox(
-              height: 150,
+              height: size.height*.18,
               child: ProductItem()
               ),
           ],

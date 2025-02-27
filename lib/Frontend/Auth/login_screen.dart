@@ -96,14 +96,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               .LogInwithEmail(emailController.text,
                               passwordController.text)
                               .then((value) {
-                            if (value == 'Login Done') {
-                              Get.snackbar('', 'LogIn Done');
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          BottomNavbar()));
-                            } else {
+                            if (context.mounted) {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => BottomNavbar()),
+                              );
+                            }else {
                               Get.snackbar("Error", value);
                             }
                           });
@@ -146,7 +144,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: OutlinedButton.styleFrom(
                         minimumSize: Size(double.infinity, scrHeight*.045),
                       ),
-                      child: const Text("Continue with Google"),
+                      child:Text("Continue with Google",style: GoogleFonts.poppins(
+                          letterSpacing: 1,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black),),
                     ),
                      SizedBox(height: scrHeight * 0.18),
                     GestureDetector(

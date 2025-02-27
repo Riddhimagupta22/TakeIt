@@ -20,20 +20,19 @@ class MensItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(top: 20.0,left: 10,right: 8),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
-        childAspectRatio: 0.7,
+        childAspectRatio: 0.6,
       ),
       itemCount: mensitem.length,
       itemBuilder: (context, index) {
         return Column(
           children: [
             Center(
-              child:  Image.asset( mensitem[index]['image']!
-              ), // Placeholder for images
+              child:  Image.asset( mensitem[index]['image']!,), // Placeholder for images
             ),
             SizedBox(height: 5),
             Text(
