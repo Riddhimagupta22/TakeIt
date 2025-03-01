@@ -17,3 +17,4 @@ class Product {
       });
   final isFvorite = false.obs;
 }
+// favorites 
