@@ -69,14 +69,17 @@ class _LoginScreenState extends State<LoginScreen> {
               right: scrWidth * 0.08,
               width: scrWidth * 0.7,
               height: scrHeight * 0.08,
-              child:  Text('TakeIt',
-                                  style: GoogleFonts.inter(
-                                              letterSpacing: 0,
-                                              fontStyle: FontStyle.italic,
-                                              fontSize: 36,
-                                              fontWeight: FontWeight.w800,
-                                              color: Color(0xFF0071DC)
-                                  ),)
+              child:  Hero(
+                tag: 'takeit',
+                child: Text('TakeIt',
+                                    style: GoogleFonts.inter(
+                                                letterSpacing: 0,
+                                                fontStyle: FontStyle.italic,
+                                                fontSize: 36,
+                                                fontWeight: FontWeight.w800,
+                                                color: Color(0xFF0071DC)
+                                    ),),
+              )
                 ),
         
             Padding(

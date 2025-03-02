@@ -35,6 +35,17 @@ class HomeScreen extends StatelessWidget {
             fontWeight: FontWeight.w700,
           ),
         ),
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.wallet),color: Colors.white,iconSize: 23,),
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: Text("Wallet",style: GoogleFonts.inter(
+            fontSize: 17,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+            ),),
+          ),
+        ],
       ),
       drawer: drawer(),
       body: SingleChildScrollView(

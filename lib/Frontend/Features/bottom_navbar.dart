@@ -31,7 +31,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
         children: [
           HomeScreen(),
           Categories(),
-          Cart(),
+          CartScreen(),
           Notifications(),
           Account(),
         ],

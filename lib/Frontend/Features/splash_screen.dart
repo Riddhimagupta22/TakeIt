@@ -30,9 +30,9 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Positioned(
             top: scrHeight * 0.08,
-            left: scrWidth * 0.835,
-            width: scrHeight * 0.097,
-            height: scrHeight * 0.03,
+            left: scrWidth * 0.81,
+            width: scrHeight * 0.089,
+            height: scrHeight * 0.056,
             child: Image.asset('Assets/images/Rectangle 18.png'),
           ),
 
@@ -64,19 +64,38 @@ class _SplashScreenState extends State<SplashScreen> {
             height: scrHeight * 0.07,
             child: Image.asset('Assets/images/apple with stickers.png'),
           ),
+          Positioned(
+              top: scrHeight * 0.096,
+              left: scrWidth * 0.86,
+            child:Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,children: [
+              Center(child: Icon(Icons.arrow_drop_down,color: Colors.black, size:15)),
+              Center(
+                child: Text("Language",style: GoogleFonts.poppins(
+                  color:  Colors.black,
+                  fontWeight: FontWeight.w500,
+                  fontSize: scrWidth * 0.018,
+                ),),
+              )
+            ],)
+          ),
 
           Padding(
             padding:  EdgeInsets.only(top: scrHeight*.42),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "TakeIt",
-                  style: GoogleFonts.inter(
-                    fontStyle: FontStyle.italic,
-                    color: const Color(0xFFFFB300),
-                    fontWeight: FontWeight.w800,
-                    fontSize: scrWidth * 0.15,
+                Hero(
+                  tag:'takeit',
+                  child: Text(
+                    "TakeIt",
+                    style: GoogleFonts.inter(
+                      fontStyle: FontStyle.italic,
+                      color: const Color(0xFFFFB300),
+                      fontWeight: FontWeight.w800,
+                      fontSize: scrWidth * 0.15,
+                    ),
                   ),
                 ),
                 Padding(

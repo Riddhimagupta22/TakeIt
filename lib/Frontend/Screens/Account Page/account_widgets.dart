@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:take_it/Frontend/Screens/Account%20Page/edit_page.dart';
 
 class AccountWidgets {
   static ListWidgets({required String text, required IconData icon}){
