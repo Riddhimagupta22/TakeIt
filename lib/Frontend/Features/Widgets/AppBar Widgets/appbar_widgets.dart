@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:take_it/Frontend/Screens/cart.dart';
+import 'package:take_it/Frontend/Screens/Cart%20Page/cart.dart';
 
 class CustomAppBar {
   static CustomText({required String text}) {

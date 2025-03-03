@@ -3,7 +3,7 @@ import 'package:take_it/Frontend/Screens/notifications.dart';
 
 import '../Screens/Home Page/home_screen.dart';
 import '../Screens/Account Page/account.dart';
-import '../Screens/cart.dart';
+import '../Screens/Cart Page/cart.dart';
 import '../Screens/Categories Page/categories.dart';
 
 class BottomNavbar extends StatefulWidget {
