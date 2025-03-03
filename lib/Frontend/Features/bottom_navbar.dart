@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:take_it/Frontend/Screens/notifications.dart';
 
+import '../Screens/Categories Page/categories_screen.dart';
 import '../Screens/Home Page/home_screen.dart';
 import '../Screens/Account Page/account.dart';
 import '../Screens/Cart Page/cart.dart';
